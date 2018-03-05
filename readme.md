@@ -1,4 +1,4 @@
-* 参考文档和视频教程: *
+**参考文档和视频教程:**
 
 [MDN](https://developer.mozilla.org/zh-CN/docs/Web/API/Canvas_API/Tutorial)
 
@@ -6,7 +6,7 @@
 
 [慕课](https://www.imooc.com/learn/185)
 
-* 代码示例：* 
+**代码示例:**
 
 [codepen](https://codepen.io/offcos/)
 
