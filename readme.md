@@ -1,5 +1,6 @@
 参考文档和视频教程:
-https://developer.mozilla.org/zh-CN/docs/Web/API/Canvas_API/Tutorial，https://www.imooc.com/t/108955
+https://developer.mozilla.org/zh-CN/docs/Web/API/Canvas_API/Tutorial
+https://www.imooc.com/learn/185
 
 代码示例： https://codepen.io/offcos/
 
@@ -53,36 +54,36 @@ bezierCurveTo(cp1x, cp1y, cp2x, cp2y, x, y)  //绘制三次贝塞尔曲线，cp1
 # 添加样式和颜色
 ```
 ## 色彩
-fillStyle     //设置图形的填充颜色
-strokeStyle   //设置图形轮廓的颜色
+fillStyle      //设置图形的填充颜色
+strokeStyle    //设置图形轮廓的颜色
 
 ## 透明度
 globalAlpha    //影响到canvas 里所有图形的透明度，有效的值范围是 0.0（完全透明）到1.0（完全不透明），默认是 1.0
 rgba()         //可以分别设置轮廓和填充样式
 
 ## 线型 ***（https://developer.mozilla.org/zh-CN/docs/Web/API/Canvas_API/Tutorial/Applying_styles_and_colors）
-lineWidth = value   //设置线条宽度
-lineCap = type      //设置线条末端样式  （butt，round 和 square。默认是 butt）
-lineJoin = type     // 设定线条与线条间接合处的样式（round, bevel 和 miter。默认是 miter）
-miterLimit = value         //限制当两条线相交时交接处最大长度；所谓交接处长度（斜接长度）是指线条交接处内角顶点到外角顶点的长度
-getLineDash()              //返回一个包含当前虚线样式，长度为非负偶数的数组
-setLineDash(segments)      //设置当前虚线样式
-lineDashOffset = value     //设置虚线样式的起始偏移量
+lineWidth                 //设置线条宽度
+lineCap                   //设置线条末端样式（butt，round 和 square。默认是 butt）
+lineJoin                  //设定线条与线条间接合处的样式（round, bevel 和 miter。默认是 miter）
+miterLimit                //限制当两条线相交时交接处最大长度；所谓交接处长度（斜接长度）是指线条交接处内角顶点到外角顶点的长度
+getLineDash()             //返回一个包含当前虚线样式，长度为非负偶数的数组
+setLineDash(segments)     //设置当前虚线样式
+lineDashOffset            //设置虚线样式的起始偏移量
 
 ## 使用虚线
-setLineDash 方法和 lineDashOffset 属性来制定虚线样式. 
-setLineDash 方法接受一个数组，来指定线段与间隙的交替；
+setLineDash 方法和 lineDashOffset 属性来制定虚线样式.
+setLineDash 方法接受一个数组，来指定线段与间隙的交替
 lineDashOffset 属性设置起始偏移量
 
 ## 渐变
 createLinearGradient(x1, y1, x2, y2)            //接受 4 个参数，表示渐变的起点 (x1,y1) 与终点 (x2,y2)
 createRadialGradient(x1, y1, r1, x2, y2, r2)    //接受 6 个参数，前三个定义一个以 (x1,y1) 为原点，半径为 r1 的圆，后三个参数则定义另一个以 (x2,y2) 为原点，半径为 r2 的圆
-gradient.addColorStop(position, color)          //接受 2 个参数，position 参数必须是一个 0.0 与 1.0 之间的数值，表示渐变中颜色所在的相对位置。
+gradient.addColorStop(position, color)          //接受 2 个参数，position 参数必须是一个 0.0 与 1.0 之间的数值，表示渐变中颜色所在的相对位置
 
 ## 图案样式
 createPattern(image, type)
-Image 可以是一个 Image 对象的引用，或者另一个 canvas 对象。
-Type ：repeat，repeat-x，repeat-y 和 no-repeat
+Image 可以是一个 Image 对象的引用，或者另一个 canvas 对象
+Type：repeat，repeat-x，repeat-y 和 no-repeat
 
 ## 阴影
 shadowOffsetX
@@ -93,5 +94,49 @@ shadowColor
 
 # 绘制文本
 ```
+fillText(text, x, y [, maxWidth])    //在指定的(x,y)位置填充指定的文本，绘制的最大宽度是可选的
+strokeText(text, x, y [, maxWidth])  //在指定的(x,y)位置绘制文本边框，绘制的最大宽度是可选的
 
+
+## 样式的文本 (与css相同)
+font          //默认的字体是 10px sans-serif。
+textAlign     //可选的值包括：start, end, left, right or center. 默认值是 start。
+textBaseline  //可选的值包括：top, hanging, middle, alphabetic, ideographic, bottom。默认值是 alphabetic。
+direction     //可能的值包括：ltr, rtl, inherit。默认值是 inherit。
+```
+
+# 绘制图片
+```
+## 绘制
+drawImage(image, x, y)                   //image 是 image 或者 canvas 对象，x 和 y 是其在目标canvas里的起始坐标
+
+## 缩放
+drawImage(image, x, y，width, height)    //width,height控制当向canvas画入时应该缩放的大小
+
+## 切片
+drawImage(image, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight)   //image同上,后面8个中前4个是定义图像源的切片位置和大小，后4个则是定义切片的目标显示位置和大小。
+```
+# 变形
+```
+## 状态的保存和恢复
+save()
+restore()
+
+## 移动
+translate(x, y)   //x是左右偏移量，y是上下偏移量
+
+## 旋转
+rotate(angle)     //只接受一个参数：旋转的角度(angle)，它是顺时针方向的，以弧度为单位的值
+
+## 缩放
+scale(x, y)       //x,y 分别是横轴和纵轴的缩放因子，必须是正值
+
+## 变形 TransformsEdit
+transform(m11, m12, m21, m22, dx, dy)  //这个方法是将当前的变形矩阵乘上一个基于自身参数的矩阵
+m11：水平方向的缩放
+m12：水平方向的倾斜偏移
+m21：竖直方向的倾斜偏移
+m22：竖直方向的缩放
+dx：水平方向的移动
+dy：竖直方向的移动
 ```
