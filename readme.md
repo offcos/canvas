@@ -1,8 +1,9 @@
 参考文档和视频教程:
-https://developer.mozilla.org/zh-CN/docs/Web/API/Canvas_API/Tutorial
-https://www.imooc.com/learn/185
 
-代码示例： https://codepen.io/offcos/
+[MDN](https://developer.mozilla.org/zh-CN/docs/Web/API/Canvas_API/Tutorial)
+[慕课](https://www.imooc.com/learn/185)
+
+代码示例： [codepen](https://codepen.io/offcos/)
 
 # 基本用法
 ```
