@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue Canvas</title>
+</head>
+<body>
+    <canvas id="canvas"></canvas>
+</body>
+<script>
+    window.onload = function(){
+        var canvas = document.getElementById('canvas');
+        canvas.width = 400;
+        canvas.height = 400;
+
+        var ctx = canvas.getContext('2d');
+
+        function draw(x,y,x1,y1,x2,y2,color,style){
+            ctx.beginPath();
+            ctx.moveTo(x,y);
+            ctx.lineTo(x1,y1)
+            ctx.lineTo(x2,y2);
+            ctx[style + 'Style'] = color;
+            ctx[style]();
+        }
+
+        ctx.save();
+        draw(0,0,400,0,200,345,"#41b883",'fill');
+        ctx.restore();
+        draw(80,0,200,208,320,0,"#35495e",'fill');
+        ctx.restore();
+        draw(150,0,200,80,245,0,"rgba(255,255,255,1)",'fill');
+    }
+</script>
+</html>
