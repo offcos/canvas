@@ -8,7 +8,8 @@
 
 **代码示例:**
 
-[codepen](https://codepen.io/offcos/)
+[tangram](https://codepen.io/offcos/pen/OQGeRj)
+[vue](https://codepen.io/offcos/pen/yKodxW)
 
 # 基本用法
 ```
